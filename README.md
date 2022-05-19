@@ -1,4 +1,4 @@
-# under-JVM-project
+# 深入理解Java虚拟机
 
 "In-depth understanding of the Java virtual machine (third edition) - Zhou Zhiming"
 study notes
