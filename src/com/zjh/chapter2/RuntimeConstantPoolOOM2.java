@@ -1,5 +1,8 @@
 package com.zjh.chapter2;
 
+import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,9 +43,20 @@ public class RuntimeConstantPoolOOM2 {
         String s7 = new String("1.8.0_281");
         String s8 = new String("1.8.0_281");
         System.out.println(s7 == s8);
-
+        
         System.out.println(s7.intern() == s7);
 
+        try {
+            // Class unsafeClass = Unsafe.class;
+            Field unsafeField = Unsafe.class.getDeclaredFields()[0];
+            unsafeField.setAccessible(true);
+            Unsafe unsafe = (Unsafe) unsafeField.get(null);
+            while (true){
+                unsafe.allocateMemory(1024*1024);
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 }
 

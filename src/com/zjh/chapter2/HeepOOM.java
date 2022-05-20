@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * HeepOOM class
  *
- * @author zhangjiahuang
+ * @author zjh
  * @date 2022/5/18 16:20
  */
 public class HeepOOM {
