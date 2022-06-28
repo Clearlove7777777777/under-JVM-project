@@ -1,4 +1,4 @@
-package com.zjh;
+package com.zjh.chapter10;
 
 /**
  * Test2 class
