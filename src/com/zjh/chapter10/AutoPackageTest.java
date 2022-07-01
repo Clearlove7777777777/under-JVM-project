@@ -9,7 +9,7 @@ package com.zjh.chapter10;
 public class AutoPackageTest {
     public static void main(String[] args) {
         Integer x1 = new Integer(1);   // new出来的包装类是直接在堆中的新对象，与常量池无关
-        Integer x2 = new Integer(1);
+        Integer x2 = new Integer(1);   // 因此x1,x2,x3是堆中不同的对象
         Integer x3 = new Integer(2);
 
         Integer a = 1;  // 如果是这种形式的声明，且数值在-128~127之间，则是直接返回常量池中的引用对象
@@ -23,8 +23,15 @@ public class AutoPackageTest {
         System.out.println(x1+ x2 == x3);   // 当==两侧任意一侧是数学表达式，那么两边的包装类型自动拆箱，结果为值大小是否相等
         System.out.println(a.hashCode());
         System.out.println(x1 == x2);
-        System.out.println(x1.equals(x2));
+        System.out.println(x1.equals(x2));  // equals比较的是数值大小，数值类型之间的比较都应使用equals而不是==
         System.out.println(x1);
         System.out.println(x2);
+
+        if (true) {
+            System.out.println("block 1");
+        } else {
+            System.out.println("block 2");
+        }
+        
     }
 }
