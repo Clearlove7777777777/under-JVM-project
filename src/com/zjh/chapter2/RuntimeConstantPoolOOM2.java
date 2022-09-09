@@ -21,6 +21,21 @@ public class RuntimeConstantPoolOOM2 {
         System.out.println(str1.intern() == str1);
         String str2 = new StringBuilder("ja").append("va").toString();
         System.out.println(str2.intern() == str2);  // "java"这个字符串
+
+        System.out.println("====");
+        
+        String x = "aghjki";
+        String x1 = new String("aghjki");
+        // System.out.println(x.hashCode());
+        // System.out.println(x1.hashCode());
+        x = null;
+        System.gc();
+        // intern()在JDK7以后返回的是第一次遇到创建该字符的对象的堆内地址，
+        System.out.println(x1.intern() == new String("aghjki"));
+        
+        String ss1 = new String("java");
+        String ss2 = new String("java");
+        System.out.println(ss1  == ss2);
         /**
          * jdk7以后，只要遇到"xxx",在类加载阶段，如果JVM是第一次遇到"xxx"，那么它就会把"xxx"放入堆中的字符串常量池中，后续如果JVM遇到了s1 = new String("xxx")给一个变量，那么该变量与字符串常量池中的"xxx"没有关系
          * s1 = new String("xxx") 和 s2 = new String("xxx")没有任何关系，地址当然也是不一样的

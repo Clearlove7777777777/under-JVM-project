@@ -3,6 +3,7 @@ package com.zjh.chapter2;
 /**
  * JavaVMStackSOF class
  *
+ * -Xss128k 设置最大栈容量
  * @author zhangjiahuang
  * @date 2022/5/18 17:06
  */
